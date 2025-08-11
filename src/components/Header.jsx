@@ -13,11 +13,20 @@ const examplePrompts = [
 
 function Header() {
   const [copiedPrompt, setCopiedPrompt] = useState('');
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleCopy = (text) => {
     navigator.clipboard.writeText(text);
     setCopiedPrompt(text);
     setTimeout(() => setCopiedPrompt(''), 2000);
+  };
+
+  const handleImageClick = (img) => {
+    setSelectedImage(img);
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null);
   };
 
   return (
@@ -107,9 +116,25 @@ function Header() {
             className='rounded max-sm:w-16 sm:w-20 cursor-pointer'
             whileHover={{ scale: 1.1, rotate: 2 }}
             transition={{ type: "spring", stiffness: 200 }}
+            onClick={() => handleImageClick(assets.sample_img_1)}
           />
         ))}
       </motion.div>
+
+      {/* Modal for enlarged image */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+          <div className="relative">
+            <img src={selectedImage} alt="Enlarged" className="max-w-[90vw] max-h-[80vh] rounded-lg shadow-lg" />
+            <button 
+              onClick={closeModal} 
+              className="absolute top-2 right-2 text-white bg-red-500 rounded-full px-3 py-1"
+            >
+              ✖
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Prompt Examples */}
       <motion.div 
