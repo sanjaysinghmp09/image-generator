@@ -128,7 +128,7 @@ function Header() {
             <img src={selectedImage} alt="Enlarged" className="max-w-[90vw] max-h-[80vh] rounded-lg shadow-lg" />
             <button 
               onClick={closeModal} 
-              className="absolute top-2 right-2 text-white bg-red-500 rounded-full px-3 py-1"
+              className="absolute top-2 right-2 text-white bg-red-500 rounded-full px-3 py-1 cursor-pointer"
             >
               ✖
             </button>
