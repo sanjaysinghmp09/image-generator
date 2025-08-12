@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { assets } from '../assets/assets';
 import { motion } from "motion/react";
 
@@ -29,8 +29,23 @@ function Header() {
     setSelectedImage(null);
   };
 
+  const Header = () => {
+    const { user, setShowLogin } = useContext(AppContext);
+    const navigate = useNavigate();
+
+    const onClickHandler = () => {
+      if (user) {
+        navigate('/result');
+      } else {
+        setShowLogin(true);
+      }
+    }
+  }
+
+
+
   return (
-    <motion.div 
+    <motion.div
       className='flex flex-col justify-center items-center text-center my-20'
       initial="hidden"
       whileInView="visible"
@@ -41,21 +56,21 @@ function Header() {
       }}
     >
       {/* Tagline */}
-      <motion.div 
+      <motion.div
         className='text-stone-500 inline-flex text-center gap-2 bg-white px-6 py-1 rounded-full border border-neutral-500 shadow-sm'
         whileHover={{ scale: 1.05 }}
       >
         <p>Wear, What You Imagine...</p>
-        <motion.img 
-          src={assets.star_icon} 
-          alt="" 
-          animate={{ rotate: [0, 15, -15, 0] }} 
+        <motion.img
+          src={assets.star_icon}
+          alt=""
+          animate={{ rotate: [0, 15, -15, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}
         />
       </motion.div>
 
       {/* Main Heading */}
-      <motion.h1 
+      <motion.h1
         className="text-4xl sm:text-6xl lg:text-7xl max-w-[90%] sm:max-w-3xl mx-auto mt-12 font-extrabold leading-tight tracking-tight"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -71,7 +86,7 @@ function Header() {
       </motion.h1>
 
       {/* Description */}
-      <motion.p 
+      <motion.p
         className="text-center max-w-xl mx-auto mt-5 text-lg leading-relaxed font-medium"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -85,15 +100,15 @@ function Header() {
       </motion.p>
 
       {/* CTA Button */}
-      <motion.button 
+      <motion.button onClick={onClickHandler()}
         className="mt-6 px-6 py-3 flex items-center gap-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-2xl"
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.96 }}
       >
         Create Design
-        <motion.img 
-          src={assets.star_group} 
-          alt="spark" 
+        <motion.img
+          src={assets.star_group}
+          alt="spark"
           className="w-6 h-6"
           animate={{ scale: [1, 1.2, 1], rotate: [0, 15, -15, 0] }}
           transition={{ repeat: Infinity, duration: 1.8 }}
@@ -101,7 +116,7 @@ function Header() {
       </motion.button>
 
       {/* Sample Images */}
-      <motion.div 
+      <motion.div
         className='flex flex-wrap justify-center gap-4 mt-10 relative'
         variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
       >
@@ -126,8 +141,8 @@ function Header() {
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
           <div className="relative">
             <img src={selectedImage} alt="Enlarged" className="max-w-[90vw] max-h-[80vh] rounded-lg shadow-lg" />
-            <button 
-              onClick={closeModal} 
+            <button
+              onClick={closeModal}
               className="absolute top-2 right-2 text-white bg-red-500 rounded-full px-3 py-1 cursor-pointer"
             >
               ✖
@@ -137,7 +152,7 @@ function Header() {
       )}
 
       {/* Prompt Examples */}
-      <motion.div 
+      <motion.div
         className="mt-10 w-full px-4 sm:px-8 lg:px-0"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -146,13 +161,13 @@ function Header() {
           <h3 className="text-xl font-bold mb-6 text-center text-gray-800">
             🎯 Try Prompts Based on Your Vibe
           </h3>
-          <motion.div 
+          <motion.div
             className="grid sm:grid-cols-2 gap-5 text-sm sm:text-base"
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
           >
             {examplePrompts.map((item, index) => (
-              <motion.div 
-                key={index} 
+              <motion.div
+                key={index}
                 className="space-y-2 relative"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
