@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { assets } from '../assets/assets';
 import { motion } from "motion/react";
+import { AppContext } from '../context/AppContext';
+import { useNavigate } from 'react-router-dom';
 
 const examplePrompts = [
   { category: 'Gaming Enthusiast', color: 'text-gray-500', text: "A futuristic soldier in a battle royale arena with glowing gear" },
@@ -15,34 +17,25 @@ function Header() {
   const [copiedPrompt, setCopiedPrompt] = useState('');
   const [selectedImage, setSelectedImage] = useState(null);
 
+  const { user, setShowLogin } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const onClickHandler = () => {
+    if (user) {
+      navigate('/result');
+    } else {
+      setShowLogin(true);
+    }
+  };
+
   const handleCopy = (text) => {
     navigator.clipboard.writeText(text);
     setCopiedPrompt(text);
     setTimeout(() => setCopiedPrompt(''), 2000);
   };
 
-  const handleImageClick = (img) => {
-    setSelectedImage(img);
-  };
-
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
-
-  const Header = () => {
-    const { user, setShowLogin } = useContext(AppContext);
-    const navigate = useNavigate();
-
-    const onClickHandler = () => {
-      if (user) {
-        navigate('/result');
-      } else {
-        setShowLogin(true);
-      }
-    }
-  }
-
-
+  const handleImageClick = (img) => setSelectedImage(img);
+  const closeModal = () => setSelectedImage(null);
 
   return (
     <motion.div
@@ -100,7 +93,8 @@ function Header() {
       </motion.p>
 
       {/* CTA Button */}
-      <motion.button onClick={onClickHandler()}
+      <motion.button
+        onClick={onClickHandler}
         className="mt-6 px-6 py-3 flex items-center gap-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-semibold text-lg rounded-full shadow-lg hover:shadow-2xl"
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.96 }}
@@ -136,7 +130,7 @@ function Header() {
         ))}
       </motion.div>
 
-      {/* Modal for enlarged image */}
+      {/* Modal */}
       {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
           <div className="relative">
