@@ -104,14 +104,17 @@ const Result = () => {
             Generate Another
           </motion.p>
           <motion.a
-            href={image}
-            download
-            className="bg-transparent border border-zinc-900 text-black px-8 py-3 rounded-full cursor-pointer"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Download
-          </motion.a>
+  href={image}
+  download
+  className="bg-green-500 hover:bg-green-600 text-white font-medium px-6 py-2 sm:px-8 sm:py-3 
+             rounded-full shadow-md border border-transparent transition-all duration-300 
+             flex items-center justify-center gap-2"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  ✅ Confirm & Continue
+</motion.a>
+
         </motion.div>
       )}
     </motion.form>
