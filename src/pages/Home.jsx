@@ -9,7 +9,7 @@ function Home() {
 
      <Header/>
      <Steps/>
-     <Testimonials/>
+     {/* <Testimonials/> */}
      <GenerateBtn/>
      
 
