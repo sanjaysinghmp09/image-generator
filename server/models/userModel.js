@@ -13,9 +13,8 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
-}, {
-    creditBalance: {
+    },
+    creditBalance: {   // 👈 yaha pe field likhna hai
         type: Number,
         default: 5
     }
