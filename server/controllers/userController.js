@@ -12,7 +12,7 @@ const registerUser = async (req, res) => {
         }
 
         const salt = await bcrypt.genSalt(10);
-        const hanshedPassword = await bcrypt.hash(password, salt);
+        const hashedPassword = await bcrypt.hash(password, salt);
 
         const userData = {
             name, email, password: hashedPassword
@@ -35,11 +35,28 @@ const registerUser = async (req, res) => {
 const loginUser = async (req, res)=> {
     try{
         const {email , password} = req.body ;
-        const user = await user
+        const user = await userModel.findOne({email});
 
-    }
-    catch {
+        if (!user) {
+            return res.json({ success: false, message: 'User not found' });
+         } 
 
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if(isMatch){
+            const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
+            res.json({ success: true, token, user: { name: user.name } });
+        }else {
+            return res.json({ success: false, message: 'Invalid credentials' });
+        }
+
+
+        
+        
+        }
+    catch(error) {
+        console.log(error);
+        res.json({ success: false, message: "Internal server error" });
     }
 }
 
