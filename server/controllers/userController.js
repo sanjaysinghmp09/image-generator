@@ -30,8 +30,18 @@ const registerUser = async (req, res) => {
         res.json({ success: false, message: "Internal server error" });
 
     }
-
 };
+
+const loginUser = async (req, res)=> {
+    try{
+        const {email , password} = req.body ;
+        const user = await user
+
+    }
+    catch {
+
+    }
+}
 
 
 export { registerUser, loginUser };
