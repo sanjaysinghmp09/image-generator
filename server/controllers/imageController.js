@@ -16,7 +16,9 @@ export const generateImage = async (req, res) => {
             return res.json({ success: false , message: "Insufficient credit balance" , creditBalance: user.creditBalance });
         }
 
-        const formData = new FormData
+        const formData = new FormData()
+        formData.append('prompt', prompt);
+        
 
 
 
