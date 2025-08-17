@@ -1,3 +1,4 @@
+import axios from "axios";
 import userModel from "../models/userModel";
 import FormData from "form-data";
 
@@ -18,7 +19,9 @@ export const generateImage = async (req, res) => {
 
         const formData = new FormData()
         formData.append('prompt', prompt);
-        
+
+
+        await axios.post()
 
 
 
