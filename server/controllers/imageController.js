@@ -1,4 +1,5 @@
-
+import userModel from "../models/userModel";
+import FormData from "form-data";
 
 export const generateImage = async (req, res) => {
     try {
@@ -14,6 +15,8 @@ export const generateImage = async (req, res) => {
         if(user.creditBalance === 0 || userModel.creditBalance < 0 ) {
             return res.json({ success: false , message: "Insufficient credit balance" , creditBalance: user.creditBalance });
         }
+
+        const formData = new FormData
 
 
 
