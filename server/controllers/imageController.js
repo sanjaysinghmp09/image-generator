@@ -21,7 +21,22 @@ export const generateImage = async (req, res) => {
         formData.append('prompt', prompt);
 
 
-        await axios.post()
+        const {data} = await axios.post('https://clipdrop-api.co/text-to-image/v1' , formData , {
+            headers : {
+                'x-api-key': process.env.CLIPDROP_API,
+            },
+            responseType: 'arraybuffer'
+
+        } )
+
+        const base64Image = Buffer.from(data, 'binary').toString('base64');
+
+        const resultImage = `data:image/png;base64,${base64Image}`;
+
+        await userModel.findByIdAndUpdate(user._id , {creditBalance: user.creditBalance - 1});
+
+        res.json({ success: true, message: "Image generated successfully", creditBalance: user.creditBalance - 1 , resultImage });
+
 
 
 
