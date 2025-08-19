@@ -7,6 +7,12 @@ const Login = () => {
   const [state, setState] = useState("Login");
   const { setShowLogin } = useContext(AppContext);
 
+  const [name , setName] = useState("");
+  const [email , setEmail] = useState("");
+  const [password , setPassword] = useState("");
+
+  
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
