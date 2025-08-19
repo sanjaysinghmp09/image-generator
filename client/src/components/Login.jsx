@@ -11,7 +11,7 @@ const Login = () => {
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
 
-  
+
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -51,7 +51,7 @@ const Login = () => {
           {state !== "Login" && (
             <div className="border px-4 py-2 flex items-center gap-2 rounded-full mt-5">
               <img src={assets.profile_icon} alt="" width={21} />
-              <input
+              <input onChange={(e) => setName(e.target.value)} value={name}
                 type="text"
                 className="outline-none border-none text-sm w-full"
                 placeholder="Full Name"
@@ -62,7 +62,7 @@ const Login = () => {
 
           <div className="border px-4 py-2 flex items-center gap-2 rounded-full mt-4">
             <img src={assets.email_icon} alt="" />
-            <input
+            <input onChange={(e) => setEmail(e.target.value)} value={email}
               type="email"
               className="outline-none border-none text-sm w-full"
               placeholder="Email ID"
@@ -72,7 +72,7 @@ const Login = () => {
 
           <div className="border px-4 py-2 flex items-center gap-2 rounded-full mt-4">
             <img src={assets.lock_icon} alt="" />
-            <input
+            <input onChange={(e) => setPassword(e.target.value)} value={password}
               type="password"
               className="outline-none border-none text-sm w-full"
               placeholder="Password"
