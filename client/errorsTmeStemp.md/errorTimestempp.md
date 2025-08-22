@@ -12,10 +12,6 @@ hold pr rkha diya he project abhi ibps so ki prep. kr rha hu 21-08-2025
 #5 
 this masseage write only for cummit 
 
-#6
-this masseage write only for cummit 
-
-#7
-this masseage write only for cummit 
+ 
 
 
