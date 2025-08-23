@@ -16,6 +16,9 @@ this masseage write only for cummit
 on any update in code 
 #7
 next task is learn react three fiber
+#8 
+next task are some diffic
+
 
  
 
