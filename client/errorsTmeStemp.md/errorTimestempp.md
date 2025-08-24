@@ -19,17 +19,7 @@ next task is learn react three fiber
 #8 
 next task are some diffic
 
-#9 no any updates
-no updates
 
-#10 no any updates
-no updates
-
-#11 no any updates
-no updates
-
-#12 no any updates
-no updates
 
 
 
