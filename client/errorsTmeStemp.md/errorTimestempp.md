@@ -19,10 +19,8 @@ next task is learn react three fiber
 #8 
 next task are some diffic
 
-#9 
-react three fiber course are not ready 
-#10
-react three fiber course are not ready 
+#9 no any updates
+no updates
 
 
 
