@@ -19,7 +19,8 @@ next task is learn react three fiber
 #8 
 next task are some diffic
 
-
+#9 
+good
 
 
 
