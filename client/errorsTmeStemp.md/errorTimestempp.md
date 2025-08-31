@@ -17,13 +17,7 @@ on any update in code
 #7
 next task is learn react three fiber
 #8 
-next task are some diffic
-
-#9 25-08-2025 didi shower 
-so no commits
-
-#9 
-good  bhai nhi kiya kuchh code koi code nhi kiya gya 
+ibps so exam diya he 30-08-2025 ko 
 
 
 
