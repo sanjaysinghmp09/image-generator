@@ -15,3 +15,4 @@ If you are developing a production application, we recommend using TypeScript wi
 # image-generator
 ai image generator
 >>>>>>> 4315cf068fa2f4c91d7dc48dc5a9917b4987af9f
+>>>>>>> got it
